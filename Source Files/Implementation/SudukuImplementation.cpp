@@ -12,6 +12,7 @@ static cell getFirstCellFromBox(cell candidateCell);
 static bool isLegalInRow (sudukoGame game,cell candidateCell,value initialValue);
 static bool isLegalInColumn (sudukoGame game,cell candidateCell,value initialValue);
 static bool isLegalOnBox (sudukoGame game,cell candidateCell,value initialValue);
+static value getIndexforTheBigestQuant (int count[]);
 
 void notSholution();
 bool hasSolution (sudukoGame game);//side effect
@@ -202,7 +203,32 @@ void notSholution() {
 value mostCommonValue (sudukoGame game){
 	int count[NUM_VALUES] = {0};
 	value possibleValue = MIN_VALUE;
-	while (possibleValue < MAX_VALUE) {
 
+	while (possibleValue <= MAX_VALUE) {
+		cell cellRef = MIN_CELL;
+		int i = 0;
+		while (cellRef <= MAX_CELL){
+			if (game[cellRef] == possibleValue){
+				count[i]++;
+			}
+			cellRef++;
+		}
+		i++;
+		possibleValue++;
 	}
+	value commonValue = (value)(1 + getIndexforTheBigestQuant (count));
+	return commonValue;
+}
+
+static value getIndexforTheBigestQuant (int count[]){
+	int bigestIndex;
+	int tempIndex=0;
+	bigestIndex = tempIndex++;
+		while (tempIndex < 9){
+			if (count[tempIndex] >= count[bigestIndex]){
+				bigestIndex = tempIndex;
+			}
+			tempIndex++;
+		}
+	return (value) bigestIndex;
 }

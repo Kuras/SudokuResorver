@@ -264,7 +264,7 @@ static void testMostCommonValue (){
 	common = mostCommonValue(grid);
 	assert(common <= MAX_VALUE);
 	assert(common >= MIN_VALUE);
-	//test returns legal val	 for full grid
+	//test returns legal value for full grid
 	common = mostCommonValue(fullGrid);
 	assert(common <= MAX_VALUE);
 	assert(common >= MIN_VALUE);
