@@ -202,7 +202,16 @@ void notSholution() {
 value mostCommonValue (sudukoGame game){
 	int count[NUM_VALUES] = {0};
 	value possibleValue = MIN_VALUE;
-	while (possibleValue < MAX_VALUE) {
-
+	while (possibleValue <= MAX_VALUE) {
+		cell cellRef = MIN_CELL;
+		while (cellRef <= MAX_CELL){
+			if (game[cellRef] == possibleValue){
+				count[(int)possibleValue]++;
+			}
+			cellRef++;
+		}
+		possibleValue++;
 	}
+
+	return count[0];
 }
