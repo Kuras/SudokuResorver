@@ -6,7 +6,7 @@
  */
 
 #include "../Interface/sudukuheader.h"
-#include<cassert>
+#include <cassert>
 
 static cell getFirstCellFromBox(cell candidateCell);
 static bool isLegalInRow (sudukoGame game,cell candidateCell,value initialValue);
